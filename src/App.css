@@ -1,112 +1,175 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* --- GLOBAL RESET --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
 
 body {
-  height: 120vh;
-  font-family: 'Poppins';
-}
-
-.container {
-  margin: 2rem auto;
-  padding: 1rem;
-  width: 100%;
-  max-width: 600px;
+  background: linear-gradient(135deg, #c9d6ff, #e2e2e2);
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
+/* --- CONTAINER --- */
+.container {
+  display: flex; flex-direction: column; justify-content: center;
+  place-self: center;
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  width: 90%;
+  max-width: 500px;
+  transition: transform 0.2s ease-in-out;
+}
 
+.container:hover {
+  transform: translateY(-3px);
+}
+
+/* --- HEADER --- */
+.title {
+  text-align: center;
+  font-size: 1.3rem;
+  color: #333;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+/* --- INPUT SECTION --- */
 .input-container {
-  display: inline-flex;
-  border: 1px solid #073f4a65;
-  border-radius: 15px;
-  margin-top: 2%;
-  background: #ffff;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 1rem;
 }
-
-
-audio {
-  transform: translateX(50px);
-  border: 1px solid #073f4a65;
-  border-radius: 70px;
-}
-
 
 .input-container input {
-  border: none;
-  padding: .55rem;
-  border-radius: 999px;
+  width: 100%;
+  padding: 0.75rem 2.5rem 0.75rem 2.5rem;
+  border-radius: 10px;
+  border: 1.8px solid #ccc;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.input-container input:focus {
   outline: none;
+  border-color: #3c91e6;
 }
-
-
-.clear-svg {
-  color: white;
-  background: #073f4a65;
-  border-radius: 15px;
-  padding: .55rem 1.06rem;
-  border: none;
-}
-
 
 .search-svg {
-  color: #00000033;
-  border-radius: 999px;
-  padding: .55rem .6rem;
-  border: none;
-}
-
-
-.empty-msg-container {
-  width: 50%;
-  display: flex;
-  margin-top: 6%;
-}
-
-
-.empty-msg, .loading-msg {
-  text-align: center;
-  color: grey;
-}
-
-
-.word-display-container, .err-display-container {
   position: absolute;
-  top: 35%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px #00000039;
-  padding: 2rem;
-}
-
-
-.word-display-container {
-  width: 100%;
-  max-width: 400px;
-}
-
-
-.word {
-  text-align: center;
+  left: 10px;
+  color: #3c91e6;
   font-size: 1.4rem;
 }
 
-
-.definition, .example,  .synonym {
-  width: 100%;
-  max-width: 360px;
-  border-left: 5px solid #073f4a65;
-  background: white;
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.159);
+.clear-svg {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
 }
 
+.clear-svg:hover {
+  color: #e74c3c;
+}
 
-.pos, .text {
-  color: grey;
+/* --- EMPTY MESSAGE --- */
+.empty-msg-container {
+  margin-top: 1.2rem;
+  text-align: center;
+}
+
+.empty-msg {
+  color: #777;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* --- WORD DISPLAY --- */
+.word-display-container {
+  margin-top: 1.2rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: #fff;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.word-display-container audio {
+  width: 100%;
+  margin-bottom: 0.6rem;
+}
+
+.word {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  text-transform: capitalize;
+}
+
+.partOfSpeech {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.text {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.definition,
+.example,
+.synonym {
+  display: block;
+  font-size: 0.95rem;
+  color: #444;
+  margin-top: 0.6rem;
+}
+
+.definition strong,
+.example strong,
+.synonym strong {
+  color: #3c91e6;
+}
+
+/* --- ERROR --- */
+.err-display-container {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.err-msg {
+  color: #e74c3c;
+  font-weight: 600;
+}
+
+/* --- LOADING --- */
+.loading-msg {
+  display: block;
+  text-align: center;
+  color: #555;
+  font-style: italic;
+}
+
+/* --- HR LINE --- */
+.word-display-container hr {
+  border: none;
+  border-top: 1px solid #e3e3e3;
+  margin: 0.8rem 0;
 }
