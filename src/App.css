@@ -9,7 +9,7 @@ body {
   place-self: center;
   min-height: 100vh;
   background: #f6f7fb; 
-  margin-left: 9%;
+  margin-left: 5%;
 }
 
 .container {
@@ -171,3 +171,4 @@ body {
   border-top: 1px solid #e3e3e3;
   margin: 0.8rem 0;
 }
+
