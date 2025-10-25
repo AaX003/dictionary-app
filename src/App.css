@@ -1,23 +1,21 @@
-/* --- GLOBAL RESET --- */
-* {
-  margin: 0;
-  padding: 0;
+*, *::before, *::after {
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
 }
 
 body {
-  background: linear-gradient(135deg, #c9d6ff, #e2e2e2);
-  min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  place-self: center;
+  min-height: 100vh;
+  background: #f6f7fb; 
+  margin-left: 9%;
 }
 
-/* --- CONTAINER --- */
 .container {
-  display: flex; flex-direction: column; justify-content: center;
-  place-self: center;
+  display: grid;
+  flex-direction: column;
+  justify-content: center;
   background: #fff;
   padding: 2rem 2.5rem;
   border-radius: 18px;
